@@ -1,6 +1,10 @@
-.img-irock {
+.container-irock {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 100px;
+}
+
+#img-irock {
+    cursor: pointer;
 }
