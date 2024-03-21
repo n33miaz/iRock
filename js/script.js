@@ -4,5 +4,8 @@ function toqueRock() {
     if (nomeUsuario) {
         alert("Muito prazer, " + nomeUsuario + "!");
         document.getElementById("img-irock").src = "./assets/irock-sorrindo.png";
+    } else {
+        alert("Queria muito saber o seu nome. ");
+        document.getElementById("img-irock").src = "./assets/irock-triste.png";
     }
 };

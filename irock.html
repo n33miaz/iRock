@@ -6,9 +6,27 @@
     <title>iRock - A rocha virtual de estimação</title>
     <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body onload="alert('Hello, eu sou a rocha de estimação.');">
+<body onload="alert('Oii, sou sua rocha de estimação!');">
     <main class="container-irock">
         <img id="img-irock" src="./assets/irock.png" alt="iRock" onclick="toqueRock();">
+        <div id="status-irock">
+            <p>status</p>
+            <div>
+                <p>Nome da pedra:</p>
+            </div>
+            <div>
+                <p>Humor Atual: </p>
+            </div>
+            <div>
+                <p>Número de Cafunés: </p>
+            </div>
+            <div>
+                <button>Configurações</button>
+                <!--implementar tela de configurações: reset pedra, reset nome, tempo de carencia,
+                tempo de aborrecimento; implementar alertas de carencia; estilizar; criar funções;
+                gerar aleatoriedade no humor sobre as ações;-->
+            </div>
+        </div>
     </main>
 </body>
 <script src="./js/script.js"></script>
