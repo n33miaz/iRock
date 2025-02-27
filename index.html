@@ -4,30 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iRock - A rocha virtual de estimação</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" href="./assets/irock-bravo.png" type="image/png">
 </head>
-<body onload="alert('Oii, sou sua rocha de estimação!');">
-    <main class="container-irock">
-        <img id="img-irock" src="./assets/irock.png" alt="iRock" onclick="toqueRock();">
-        <div id="status-irock">
-            <p>status</p>
-            <div>
-                <p>Nome da pedra:</p>
+<body class="bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans flex items-center justify-center min-h-screen py-12" onclick="irritarSeFora(event)">
+    <div id="container-principal" class="container mx-auto max-w-3xl rounded-2xl shadow-2xl overflow-hidden">
+        <div class="md:flex">
+            <!-- Seção da iRock -->
+            <div class="md:w-1/2 p-8 flex flex-col items-center justify-center bg-gray-700">
+                <img id="img-irock" src="./assets/irock.png" alt="iRock" class="unselectable cursor-pointer w-64 h-64 object-contain transition-transform transform hover:scale-110 mb-4" onclick="darCarinho();">
+                <p id="mensagem-acao" class="text-sm italic text-gray-300 h-6"></p>
             </div>
-            <div>
-                <p>Humor Atual: </p>
-            </div>
-            <div>
-                <p>Número de Cafunés: </p>
-            </div>
-            <div>
-                <button>Configurações</button>
-                <!--implementar tela de configurações: reset pedra, reset nome, tempo de carencia,
-                tempo de aborrecimento; implementar alertas de carencia; estilizar; criar funções;
-                gerar aleatoriedade no humor sobre as ações;-->
+
+            <!-- Seção de Status e Configurações -->
+            <div class="md:w-1/2 p-8 bg-gray-800">
+                <h2 class="text-2xl font-semibold mb-6 text-center">Status da iRock</h2>
+
+                <div class="mb-4">
+                    <p class="font-medium">Nome:</p>
+                    <p id="nome-pedra" class="text-gray-300">Pedra</p>
+                </div>
+                <div class="mb-4">
+                    <p class="font-medium">Humor:</p>
+                    <p id="humor-pedra" class="text-gray-300">Neutro</p>
+                </div>
+                <div class="mb-4">
+                    <p class="font-medium">Cafunés:</p>
+                    <p id="carinhos-pedra" class="text-gray-300">0</p>
+                </div>
+
+                <div class="mt-8 flex justify-center">
+                    <button id="btn-configuracoes" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="abrirConfiguracoes();">Configurações</button>
+                </div>
             </div>
         </div>
-    </main>
+    </div>
+
+    <!-- Tela de Configurações (Inicialmente Oculta) -->
+    <div id="tela-configuracoes" class="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-75 flex items-center justify-center hidden">
+        <div class="bg-gray-700 rounded-lg shadow-lg p-8 max-w-md">
+            <h2 class="text-2xl font-semibold mb-6 text-center">Configurações da iRock</h2>
+
+            <div class="mb-4">
+                <label for="novo-nome" class="block text-gray-300 font-medium mb-2">Novo Nome:</label>
+                <input type="text" id="novo-nome" class="bg-gray-600 text-white rounded py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Digite o novo nome">
+            </div>
+            <div class="mb-4">
+                <label for="tempo-carencia" class="block text-gray-300 font-medium mb-2">Tempo de Carência (segundos):</label>
+                <input type="number" id="tempo-carencia" class="bg-gray-600 text-white rounded py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" value="60">
+            </div>
+              <div class="mb-4">
+                <label for="imagem-irock" class="block text-gray-300 font-medium mb-2">Mudar Imagem da iRock:</label>
+                <select id="imagem-irock" class="bg-gray-600 text-white rounded py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="irock.png">Normal</option>
+                    <option value="irock-sorrindo.png">Feliz</option>
+                    <option value="irock-triste.png">Triste</option>
+                    <option value="irock-irritada.png">Irritada</option>
+                </select>
+            </div>
+
+            <div class="flex justify-end mt-8">
+                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2" onclick="fecharConfiguracoes()">Cancelar</button>
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onclick="salvarConfiguracoes()">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/cookie.js"></script>
+    <script src="./js/script.js"></script>
 </body>
-<script src="./js/script.js"></script>
 </html>
